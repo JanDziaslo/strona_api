@@ -4,7 +4,7 @@ Aplikacja webowa wyświetlająca dostępne inwentaryzacje z API z możliwością
 
 ## Funkcjonalności
 
-- 📋 **Wyświetlanie inwentaryzacji** - pobiera dane z API inwentury.pl dla województwa śląskiego
+- 📋 **Wyświetlanie inwentaryzacji** - pobiera dane z API inwentury.pl dla województwa Mazowieckiego
 - 🔍 **Filtry**:
   - Ukrywanie przepełnionych inwentaryzacji (lista rezerwowa)
   - Ukrywanie ofert wyjazdowych (z transportem)
@@ -18,7 +18,6 @@ strona_api/
 ├── index.html          # Główna strona HTML
 ├── index.js            # Logika JavaScript
 ├── package.json        # Konfiguracja projektu
-├── api_zawartosc.txt   # Przykładowe dane z API
 └── README.md           # Ten plik
 ```
 
@@ -58,7 +57,7 @@ Aplikacja pobiera dane z:
 https://api.inwentury.pl/errands.json?province=9
 ```
 
-Gdzie `province=9` oznacza województwo śląskie.
+Gdzie `province=9` oznacza województwo mazowieckie.
 
 ## Instalacja lokalna
 
