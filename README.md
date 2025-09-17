@@ -18,7 +18,6 @@ strona_api/
 ├── index.html          # Główna strona HTML
 ├── index.js            # Logika JavaScript
 ├── package.json        # Konfiguracja projektu
-├── api_zawartosc.txt   # Przykładowe dane z API
 └── README.md           # Ten plik
 ```
 
