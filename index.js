@@ -2,6 +2,34 @@ console.log('Happy developing ✨')
 
 let allData = []; // Przechowuje wszystkie dane
 
+// Funkcja do przełączania ciemnego motywu
+function toggleDarkMode() {
+  const isDarkMode = document.getElementById('dark-mode').checked;
+  const body = document.body;
+
+  if (isDarkMode) {
+    body.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Inicjalizacja motywu na podstawie zapisanych preferencji
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const darkModeCheckbox = document.getElementById('dark-mode');
+
+  if (savedTheme === 'dark') {
+    darkModeCheckbox.checked = true;
+    document.body.setAttribute('data-theme', 'dark');
+  } else {
+    darkModeCheckbox.checked = false;
+    document.body.removeAttribute('data-theme');
+  }
+}
+
 function renderInwentaryzacje(data) {
   const container = document.getElementById('inwentaryzacje');
   if (!container) return;
@@ -84,9 +112,13 @@ fetch('https://api.inwentury.pl/errands.json?province=9')
     // Dodaj event listenery do filtrów
     document.getElementById('ukryj-pelne').addEventListener('change', applyFilters);
     document.getElementById('ukryj-wyjazdowe').addEventListener('change', applyFilters);
+    document.getElementById('dark-mode').addEventListener('change', toggleDarkMode);
 
     // Pierwszy render
     applyFilters();
+
+    // Inicjalizuj motyw po załadowaniu danych
+    initTheme();
   })
   .catch(err => {
     document.getElementById('inwentaryzacje').innerText = 'Błąd ładowania danych';

@@ -5,6 +5,30 @@
   <title>Dostępne inwentaryzacje</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    :root {
+      --bg-primary: #f4f6fb;
+      --bg-secondary: #fff;
+      --text-primary: #222;
+      --text-secondary: #555;
+      --text-tertiary: #444;
+      --text-highlight: #2a3b8f;
+      --border-color: #e2e6ef;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --shadow-hover: rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #1a1a1a;
+      --bg-secondary: #2d2d2d;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --text-tertiary: #c0c0c0;
+      --text-highlight: #6a8cff;
+      --border-color: #404040;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --shadow-hover: rgba(0, 0, 0, 0.5);
+    }
+
     html {
       box-sizing: border-box;
       font-size: 16px;
@@ -15,14 +39,15 @@
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
-      background: #f4f6fb;
-      color: #222;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     h1 {
       text-align: center;
       margin-top: 2rem;
-      color: #2a3b8f;
+      color: var(--text-highlight);
       letter-spacing: 1px;
       font-size: 2rem;
     }
@@ -32,29 +57,29 @@
       padding: 0 0.5rem;
     }
     .inwentaryzacja {
-      background: #fff;
+      background: var(--bg-secondary);
       border-radius: 10px;
-      box-shadow: 0 2px 8px #0001;
+      box-shadow: 0 2px 8px var(--shadow-color);
       margin-bottom: 1.2rem;
       padding: 1rem 1.2rem;
       transition: box-shadow 0.2s;
-      border-left: 4px solid #2a3b8f;
+      border-left: 4px solid var(--text-highlight);
       font-size: 0.97rem;
       line-height: 1.5;
     }
     .inwentaryzacja:hover {
-      box-shadow: 0 4px 16px #0002;
+      box-shadow: 0 4px 16px var(--shadow-hover);
     }
     .inwentaryzacja h2 {
       margin: 0 0 0.3rem 0;
       font-size: 1.1rem;
-      color: #2a3b8f;
+      color: var(--text-highlight);
       font-weight: 600;
       word-break: break-word;
     }
     .inwentaryzacja .adres {
       font-size: 0.98rem;
-      color: #555;
+      color: var(--text-secondary);
       margin-bottom: 0.3rem;
       word-break: break-word;
     }
@@ -69,26 +94,26 @@
       align-items: center;
       gap: 0.3em;
       font-size: 0.95rem;
-      background: #f4f6fb;
+      background: var(--bg-primary);
       border-radius: 5px;
       padding: 0.15em 0.5em;
       min-width: 0;
     }
     .inwentaryzacja .opiekun {
       font-size: 0.93rem;
-      color: #444;
+      color: var(--text-tertiary);
       margin-bottom: 0.3rem;
       word-break: break-word;
     }
     .inwentaryzacja .szczegoly {
       font-size: 0.93rem;
-      color: #2a3b8f;
+      color: var(--text-highlight);
       margin-bottom: 0.3rem;
       word-break: break-word;
     }
     .inwentaryzacja hr {
       border: none;
-      border-top: 1px solid #e2e6ef;
+      border-top: 1px solid var(--border-color);
       margin: 0.8rem 0 0.2rem 0;
     }
     @media (max-width: 900px) {
@@ -126,13 +151,17 @@
   <h1>Dostępne inwentaryzacje</h1>
 
   <div id="filtry" style="max-width: 700px; margin: 1rem auto; padding: 0 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
-    <label style="display: flex; align-items: center; gap: 0.3rem; background: #fff; padding: 0.5rem 0.8rem; border-radius: 8px; box-shadow: 0 2px 4px #0001; cursor: pointer; font-size: 0.9rem;">
+    <label style="display: flex; align-items: center; gap: 0.3rem; background: var(--bg-secondary); padding: 0.5rem 0.8rem; border-radius: 8px; box-shadow: 0 2px 4px var(--shadow-color); cursor: pointer; font-size: 0.9rem;">
       <input type="checkbox" id="ukryj-pelne" style="margin: 0;">
       <span>Ukryj przepełnione (lista rezerwowa)</span>
     </label>
-    <label style="display: flex; align-items: center; gap: 0.3rem; background: #fff; padding: 0.5rem 0.8rem; border-radius: 8px; box-shadow: 0 2px 4px #0001; cursor: pointer; font-size: 0.9rem;">
+    <label style="display: flex; align-items: center; gap: 0.3rem; background: var(--bg-secondary); padding: 0.5rem 0.8rem; border-radius: 8px; box-shadow: 0 2px 4px var(--shadow-color); cursor: pointer; font-size: 0.9rem;">
       <input type="checkbox" id="ukryj-wyjazdowe" style="margin: 0;">
       <span>Ukryj oferty wyjazdowe</span>
+    </label>
+    <label style="display: flex; align-items: center; gap: 0.3rem; background: var(--bg-secondary); padding: 0.5rem 0.8rem; border-radius: 8px; box-shadow: 0 2px 4px var(--shadow-color); cursor: pointer; font-size: 0.9rem;">
+      <input type="checkbox" id="dark-mode" style="margin: 0;">
+      <span>🌙 Ciemny motyw</span>
     </label>
   </div>
 
