@@ -10,6 +10,7 @@ Aplikacja webowa wyświetlająca dostępne inwentaryzacje z API z możliwością
   - Ukrywanie ofert wyjazdowych (z transportem)
 - 📱 **Responsywny design** - działa na wszystkich urządzeniach
 - ⚡ **Dynamiczne filtrowanie** - filtry działają natychmiast
+- 🌙 **Ciemny motyw** - możliwość zmianu motywu z jasnego na ciemny
 
 ## Struktura projektu
 
